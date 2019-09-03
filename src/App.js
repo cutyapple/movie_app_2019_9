@@ -5,6 +5,20 @@ class App extends React.Component{
     count: 0
   };
 
+  constructor(props){
+    super(props);
+    console.log("Hello?");
+  }
+
+  componentDidMount(){
+    console.log("component rendering");
+  }
+
+  componentDidUpdate(){
+    console.log("component updating");
+  }
+
+
   add = () =>{
     this.setState(current => ({
       count: current.count + 1
@@ -17,6 +31,7 @@ class App extends React.Component{
   };
 
   render(){
+    console.log("I'm rendering");
     return(
       <div>
         <h1>The Number is {this.state.count}</h1>
@@ -28,3 +43,5 @@ class App extends React.Component{
 }
 
 export default App;
+
+/*#3_2 Component Life Cycle*/
