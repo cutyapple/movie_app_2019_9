@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class App extends React.Component{
   state = {
@@ -17,13 +16,11 @@ class App extends React.Component{
     return(
       <div>
         <h1>The Number is {this.state.count}</h1>
-        <button onClick={this.add()}>Add</button>
-        <button onClick={this.minus()}>Minus</button>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
       </div>
     )
   }
 }
-
-
 
 export default App;
