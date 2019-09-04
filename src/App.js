@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Movie from "./Movie";
+import "./App.css";
 
   class App extends React.Component{
   state = {
@@ -8,7 +10,12 @@ import axios from "axios";
   };
 
   getMovies = async() => { 
-    const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    const {
+            data:{
+              data:{movies}
+            }
+          } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+    this.setState({movies, isLoading:false})
   }
 
   componentDidMount(){
@@ -16,16 +23,32 @@ import axios from "axios";
   }
 
   render(){
-    const {isLoading} = this.state;
+    const {isLoading, movies} = this.state;
 
     return(
-      <div>
-        {isLoading ? "Loading..." : "We are ready"}
-      </div>
+      <section class="container">
+        {isLoading ?
+          <div class="loader">
+            <spna class="loader__text">Loading...</spna>
+          </div>
+          :(
+            <div class="movies">
+              {movies.map(movie =>(
+                <Movie 
+                key={movie.id}
+                id={movie.id} 
+                year={movie.year} 
+                title={movie.title} 
+                summary={movie.summary} 
+                poster={movie.medium_cover_image}
+                />
+              ))}
+            </div>
+      )}</section>
     );
   }
 }
 
 export default App;
 
-/*#4.0_Fetching_Movies_from_API*/
+/*#4.1_Rendering_the_Movies*/
