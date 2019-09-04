@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { async } from "q";
 
   class App extends React.Component{
   state = {
@@ -29,4 +28,4 @@ import { async } from "q";
 
 export default App;
 
-/*#3.3_Planning_the_Movie_Component*/
+/*#4.0_Fetching_Movies_from_API*/
