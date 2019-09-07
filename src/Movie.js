@@ -13,7 +13,7 @@ function Movie({ year, title, summary, poster, genres}){
                     <li key={index} className="genres__genere">
                 {genre}</li>))}
             </ul>
-            <p className="movie__summary">{summary}</p>
+            <p className="movie__summary">{summary.slice(0, 180)}...</p>
         </div>
     </div>;
 }
@@ -29,4 +29,4 @@ Movie.propTypes={
 
 export default Movie;
 
-/*#4.4_Styles_Timelapse*/
+/*#4.5_Cuttting_the_summary*/
